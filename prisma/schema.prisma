@@ -1,0 +1,64 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id    String @id @default(cuid())
+  email String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  password Password?
+  // session  Session[]
+}
+
+model Password {
+  hash String
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId String @unique
+}
+
+// uncomment when persistence is needed
+
+// model Session {
+//   // A session represents a single chat session. 
+//   // Sessions are created when a user first visits the site, 
+// 
+//   id     String @id @default(cuid())
+//   cookie String @unique
+// 
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+// 
+//   user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+//   userId String?
+// 
+//   model String @default("gpt-3.5-turbo")
+// 
+//   messages Message[]
+// }
+// 
+// model Message {
+//   id   String @id @default(cuid())
+//   text String
+// 
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+// 
+//   isBot     Boolean
+//   Session   Session? @relation(fields: [sessionId], references: [id])
+//   sessionId String?
+// 
+//   // uncomment if we ever need to filter by whether messages are bot or not
+//   // @@index([sessionId, isBot])
+// 
+//   @@index([sessionId, createdAt])
+// }
+// 
