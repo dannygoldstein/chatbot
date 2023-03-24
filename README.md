@@ -6,6 +6,7 @@ Uses remix indie stack. *Set secrets in .env.example.* Run with pnpm.
 pnpm install
 pnpm run dev
 ```
+[681e3274-0812-4f0a-a32b-a9bc19edcc4f.webm](https://user-images.githubusercontent.com/2769632/227396534-e5c569cb-3a0b-4083-a7e9-78e3bd4174ac.webm)
 
 Should be serving at localhost:3000.
 
