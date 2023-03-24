@@ -1,11 +1,13 @@
 Chatbot that talks to OpenAI API.
 
-Uses remix indie stack. Set secrets in .env.example. Run with pnpm.
+Uses remix indie stack. *Set secrets in .env.example.* Run with pnpm.
 
 ```bash
 pnpm install
 pnpm run dev
 ```
+
+Should be serving at localhost:3000.
 
 ## What's in the stack
 
